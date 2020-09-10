@@ -11,6 +11,126 @@ components:
       required: true
       schema:
         type: string
+    FilterRequiredQueryParameter:
+      description: Only include required objects in the response.
+      in: query
+      name: filter[required]
+      required: false
+      schema:
+        default: false
+        type: boolean
+    IncidentIDPathParameter:
+      description: The ID(`incident_id`) of the incident.
+      in: path
+      name: incident_id
+      required: true
+      schema:
+        type: string
+    IncidentIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        - user_defined_fields
+        - user_defined_field_selections
+        type: string
+    IncidentIntegrationMetadataIDPathParameter:
+      description: The ID of the incident integration metadata.
+      in: path
+      name: metadata_id
+      required: true
+      schema:
+        type: string
+    IncidentPostmortemIDPathParameter:
+      description: The ID of the postmortem.
+      in: path
+      name: postmortem_id
+      required: true
+      schema:
+        type: string
+    IncidentSearchIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - user_defined_field
+        - user_defined_field_selections
+        - teams
+        - services
+        - all
+        type: string
+    IncidentSearchQueryQueryParameter:
+      description: "A query string written in a simple grammar which supports `key:value`\
+        \ and text terms. Examples:\n  `severity:(SEV-1 AND SEV-2)`\n  `state:resolved\
+        \ AND commander.handle:john`\n  `\"the site is down\" AND teams:\"Team Red\"\
+        `"
+      in: query
+      name: query
+      required: false
+      schema:
+        nullable: false
+        type: string
+    IncidentServiceIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    IncidentTeamIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    IncidentTimelineCellIDPathParameter:
+      description: The ID of the timeline cell.
+      in: path
+      name: cell_id
+      required: true
+      schema:
+        type: string
+    IncidentTimelineCellIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    IncidentToDoIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    IncidentTodoIDPathParameter:
+      description: The ID of the incident to-do.
+      in: path
+      name: todo_id
+      required: true
+      schema:
+        type: string
     PageNumber:
       description: Specific page number to return.
       in: query
@@ -29,6 +149,36 @@ components:
         default: 10
         format: int64
         type: integer
+    PageSortFieldQueryParameter:
+      description: Sort field to use.
+      in: query
+      name: page[sort_field]
+      required: false
+      schema:
+        type: string
+    PageSortQueryParameter:
+      description: Sort direction.
+      in: query
+      name: page[sort]
+      required: false
+      schema:
+        default: asc
+        enum:
+        - asc
+        - desc
+        type: string
+    PostmortemIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        - user_defined_fields
+        - user_defined_field_selections
+        type: string
     RestrictionQueryID:
       description: The ID of the restriction query.
       in: path
@@ -64,6 +214,110 @@ components:
       required: true
       schema:
         type: string
+    ServiceIDPathParameter:
+      description: The ID of the service.
+      in: path
+      name: service_id
+      required: true
+      schema:
+        type: string
+    ServiceIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    TagKeySearchQueryParameter:
+      description: Search query to be used to filter results
+      in: query
+      name: query
+      required: false
+      schema:
+        default: false
+        type: boolean
+    TagValuesTagKeyQueryParameter:
+      description: Tag key for which values are returned
+      in: query
+      name: tag_key
+      required: true
+      schema:
+        default: false
+        type: boolean
+    TeamIDPathParameter:
+      description: The ID of the team.
+      in: path
+      name: team_id
+      required: true
+      schema:
+        type: string
+    TeamIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    UserDefinedFieldChoiceIDPathParameter:
+      description: The ID of the incident field choice.
+      in: path
+      name: choice_id
+      required: true
+      schema:
+        type: string
+    UserDefinedFieldChoiceIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        type: string
+    UserDefinedFieldIDPathParameter:
+      description: The ID of the user-defined field.
+      in: path
+      name: field_id
+      required: true
+      schema:
+        type: string
+    UserDefinedFieldIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        - user_defined_field_choices
+        type: string
+    UserDefinedFieldSelectionIDPathParameter:
+      description: The ID of the incident field selection.
+      in: path
+      name: selection_id
+      required: true
+      schema:
+        type: string
+    UserDefinedFieldSelectionIncludeQueryParameter:
+      description: Include related resources in the `included` field of the JSON API
+        response wrapper.
+      in: query
+      name: include
+      required: false
+      schema:
+        enum:
+        - users
+        - user_defined_fields
+        - user_defined_field_choices
+        type: string
     UserID:
       description: The ID of the user.
       in: path
@@ -71,8 +325,48 @@ components:
       required: true
       schema:
         type: string
+    WithUsersQueryParameter:
+      description: Include user data in API response.
+      in: query
+      name: include[users]
+      required: false
+      schema:
+        default: false
+        type: boolean
   requestBodies: {}
   responses:
+    204DefaultResponse:
+      description: DELETED
+    400DefaultResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Bad Request
+    401DefaultResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Authentication error
+    403DefaultResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Forbidden
+    404DefaultResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Not Found
+    409DefaultResponse:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/APIErrorResponse'
+      description: Conflict
     BadRequestResponse:
       content:
         application/json:
@@ -110,6 +404,16 @@ components:
           type: array
       required:
       - errors
+      type: object
+    BasicUserRelationships:
+      description: JSON API relationships for users who created and modified an object
+        when no other users are related by other names.
+      properties:
+        created_by:
+          $ref: '#/components/schemas/UserRelationship'
+        last_modified_by:
+          $ref: '#/components/schemas/UserRelationship'
+      readOnly: true
       type: object
     Creator:
       description: Creator of the object.
@@ -292,6 +596,1782 @@ components:
       - INTEGRATION_SCREENBOARD
       - INTEGRATION_TIMEBOARD
       - HOST_TIMEBOARD
+    EmbeddedIncidentsUser:
+      description: JSON API user payload.
+      properties:
+        attributes:
+          description: The embedded user's attributes.
+          properties:
+            email:
+              description: Email of the user.
+              example: john@example.com
+              type: string
+            handle:
+              description: Handle of the user.
+              example: username
+              type: string
+            icon:
+              description: URL of the user's icon.
+              example: https://example.com/image.png
+              type: string
+            name:
+              description: Name of the user.
+              example: example user
+              type: string
+            uuid:
+              description: Unique ID of the user.
+              example: 00000000-0000-0000-0000-000000000000
+              type: string
+          type: object
+        id:
+          description: ID of the user.
+          type: string
+        type:
+          $ref: '#/components/schemas/UsersType'
+      type: object
+    Incident:
+      description: An incident record to store information about incident response.
+      properties:
+        attributes:
+          description: The incident attributes.
+          properties:
+            commander:
+              description: An embedded JSON API object of the user who oversaw this
+                incident response.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created:
+              description: Timestamp when an incident was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                field.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            creation_idempotency_key:
+              description: A key to be used when a client cannot await a success response
+                and must retry calls until the record with this key exists.
+              nullable: true
+              type: string
+            customer_impact_duration:
+              description: Length of the incident's customer impact in seconds. Equals
+                the delta between `customer_impact_start` and `customer_impact_end`.
+              format: int64
+              readOnly: true
+              type: integer
+            customer_impact_end:
+              description: Timestamp when customers were no longer impacted by the
+                incident.
+              format: date-time
+              nullable: true
+              type: string
+            customer_impact_scope:
+              description: A human-readable description of the impact to customers
+                during this incident.
+              type: string
+            customer_impact_start:
+              description: Timestamp when customers began being impacted by the incident.
+              format: date-time
+              nullable: true
+              type: string
+            customer_impacted:
+              description: Flag set to true if customers were impacted by the incident.
+              type: boolean
+            detected:
+              description: Timestamp when an incident was detected.
+              format: date-time
+              nullable: true
+              type: string
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this field.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp when an incident was last modified.
+              format: date-time
+              readOnly: true
+              type: string
+            postmortem_id:
+              description: The ID for the postmortem associated with an incident.
+              example: cbbe9e15d3bf55858eee5ffad3619798
+              readOnly: true
+              type: string
+            public_id:
+              description: Auto-incremented ID for each incident. These are unique
+                to each incident belonging to an organization.
+              format: int64
+              readOnly: true
+              type: integer
+            resolved:
+              description: Timestamp when an incident's state was set to resolved.
+              format: date-time
+              nullable: true
+              type: string
+            state:
+              description: The current state if an incident.
+              example: active
+              type: string
+            time_to_detect:
+              description: The amount of time in seconds to detect the incident. Equals
+                the delta between `customer_impact_start` and `detected`.
+              format: int64
+              readOnly: true
+              type: integer
+            time_to_internal_response:
+              description: The amount of time in seconds to call incident after detection.
+                Equals the delta of `detected` - `created`.
+              format: int64
+              readOnly: true
+              type: integer
+            time_to_repair:
+              description: The amount of time in seconds to resolve customer impact
+                after detecting the issue. Equals the delta between `customer_impact_end`
+                - `detected`.
+              format: int64
+              readOnly: true
+              type: integer
+            title:
+              description: The title of the incident.
+              type: string
+          type: object
+        id:
+          description: The incident ID.
+          example: 602e6271ade05cfa8ff193594a801aca
+          readOnly: true
+          type: string
+        relationships:
+          description: JSON API relationships.
+          properties:
+            commander_user:
+              $ref: '#/components/schemas/UserRelationship'
+            created_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+            last_modified_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+            services:
+              description: The services associated with this incident.
+              properties:
+                data:
+                  description: The service ID array.
+                  items:
+                    $ref: '#/components/schemas/ServiceRelationship'
+                  type: array
+              type: object
+            teams:
+              description: The teams associated with this incident.
+              properties:
+                data:
+                  description: The team ID array.
+                  items:
+                    $ref: '#/components/schemas/TeamRelationship'
+                  type: array
+              type: object
+            user_defined_field_selections:
+              description: The user-defined field selections which hold values for
+                user-defined fields of this incident.
+              properties:
+                data:
+                  description: The user-defined field selections ID array.
+                  items:
+                    $ref: '#/components/schemas/UserDefinedFieldSelectionRelationship'
+                  type: array
+              type: object
+            user_defined_fields:
+              description: The user-defined fields available for all incidents belonging
+                to the requesting user's organization.
+              properties:
+                data:
+                  description: The field ID array.
+                  items:
+                    $ref: '#/components/schemas/UserDefinedFieldRelationship'
+                  type: array
+              type: object
+          type: object
+        type:
+          $ref: '#/components/schemas/IncidentType'
+      type: object
+    IncidentArray:
+      description: An array of incidents.
+      items:
+        $ref: '#/components/schemas/Incident'
+      type: array
+    IncidentCreateRequestWithInitialData:
+      description: JSON API request with a incident payload that include initial data
+        fields.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentCreateWithInitialData'
+      required:
+      - data
+      type: object
+    IncidentCreateWithInitialData:
+      description: For creating incidents you can also pass initial data for signals
+        and choice selections
+      properties:
+        attributes:
+          description: The incident attributes.
+          properties:
+            commander:
+              description: An embedded JSON API object of the user who oversaw this
+                incident response for initial data payload.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created:
+              description: Timestamp when an incident was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                field for initial data payload.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            creation_idempotency_key:
+              description: A key to be used when a client cannot await a success response
+                and must retry calls until the record with this key exists.
+              nullable: true
+              type: string
+            customer_impact_duration:
+              description: Length of the incident's customer impact in seconds. Equals
+                the delta between `customer_impact_start` and `customer_impact_end`.
+              format: int64
+              readOnly: true
+              type: integer
+            customer_impact_end:
+              description: Timestamp when customers were no longer impacted by the
+                incident.
+              format: date-time
+              nullable: true
+              type: string
+            customer_impact_scope:
+              description: A human-readable description of the impact to customers
+                during this incident.
+              type: string
+            customer_impact_start:
+              description: Timestamp when customers began being impacted by the incident.
+              format: date-time
+              nullable: true
+              type: string
+            customer_impacted:
+              description: Flag set to true if customers were impacted by the incident.
+              type: boolean
+            detected:
+              description: Timestamp when an incident was detected.
+              format: date-time
+              nullable: true
+              type: string
+            initial_cells:
+              description: An array of initial timeline cell definitions to include.
+              items:
+                $ref: '#/components/schemas/IncidentTimelineCellAttributes'
+              type: array
+            initial_user_defined_field_choices:
+              description: An array of initial choices when creating an incident.
+              items:
+                $ref: '#/components/schemas/IncidentInitialUserDefinedFieldChoices'
+              type: array
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this field for initial data payload.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp when an incident was last modified.
+              format: date-time
+              readOnly: true
+              type: string
+            postmortem_id:
+              description: The ID for the postmortem associated with an incident.
+              example: cbbe9e15d3bf55858eee5ffad3619798
+              readOnly: true
+              type: string
+            public_id:
+              description: Auto-incremented ID for each incident. These are unique
+                to each incident belonging to an organization.
+              format: int64
+              readOnly: true
+              type: integer
+            resolved:
+              description: Timestamp when an incident's state was set to resolved.
+              format: date-time
+              nullable: true
+              type: string
+            state:
+              description: The current state if an incident.
+              example: active
+              type: string
+            time_to_detect:
+              description: The amount of time in seconds to detect the incident. Equals
+                the delta between `customer_impact_start` and `detected`.
+              format: int64
+              readOnly: true
+              type: integer
+            time_to_internal_response:
+              description: The amount of time in seconds to detect the incidents occurrence.
+                Represents the delta of detected - created.
+              format: int64
+              readOnly: true
+              type: integer
+            time_to_repair:
+              description: The amount of time in seconds to resolve customer impact
+                after detecting the issue. Equals the delta between `customer_impact_end`
+                - `detected`.
+              format: int64
+              readOnly: true
+              type: integer
+            title:
+              description: The title of the incident.
+              type: string
+          type: object
+        relationships:
+          description: JSON API relationships.
+          properties:
+            commander:
+              description: The user who will be assigned as commander.
+              properties:
+                data:
+                  description: The commander assignee's data.
+                  properties:
+                    id:
+                      description: The user ID for the commander assignee.
+                      example: 677897dd-eb6d-11e9-a34b-b7c03b6671c1
+                      type: string
+                    type:
+                      $ref: '#/components/schemas/UsersType'
+                  type: object
+              type: object
+          type: object
+        type:
+          $ref: '#/components/schemas/IncidentType'
+      type: object
+    IncidentFacetPercentilesAggregation:
+      description: A `percentiles` aggregation for facets.
+      properties:
+        data:
+          description: A facet definition.
+          properties:
+            p1:
+              description: The 1% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p25:
+              description: The 25% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p5:
+              description: The 5% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p50:
+              description: The 50% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p75:
+              description: The 75% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p95:
+              description: The 95% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            p99:
+              description: The 99% distribution value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+          type: object
+        type:
+          $ref: '#/components/schemas/PercentilesIncidentFacetType'
+      type: object
+    IncidentFacetSchema:
+      description: Facets data comes in one of several types.
+      oneOf:
+      - $ref: '#/components/schemas/IncidentFacetTermsAggregation'
+      - $ref: '#/components/schemas/IncidentFacetStatsAggregation'
+      - $ref: '#/components/schemas/IncidentFacetPercentilesAggregation'
+      required:
+      - type
+      type: object
+    IncidentFacetStatsAggregation:
+      description: A `stats` aggregation for facets.
+      properties:
+        data:
+          description: A facet definition.
+          properties:
+            avg:
+              description: The average value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            count:
+              description: The count of matches.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            max:
+              description: The max value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            min:
+              description: The min value.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+            sum:
+              description: The sum of values.
+              format: double
+              nullable: true
+              readOnly: true
+              type: number
+          type: object
+        type:
+          $ref: '#/components/schemas/StatsIncidentFacetType'
+      type: object
+    IncidentFacetTermsAggregation:
+      description: A `terms` aggregation for facets.
+      properties:
+        data:
+          description: A facet definition.
+          properties:
+            count:
+              description: A count of the terms.
+              format: int64
+              nullable: true
+              readOnly: true
+              type: integer
+            name:
+              description: String form of the facet.
+              readOnly: true
+              type: string
+          type: object
+        type:
+          $ref: '#/components/schemas/TermsIncidentFacetType'
+      type: object
+    IncidentIncludedItems:
+      description: An object related to an incident which is included in the JSON
+        API response.
+      oneOf:
+      - $ref: '#/components/schemas/EmbeddedIncidentsUser'
+      - $ref: '#/components/schemas/UserDefinedField'
+      - $ref: '#/components/schemas/UserDefinedFieldSelection'
+      - $ref: '#/components/schemas/Team'
+      - $ref: '#/components/schemas/Service'
+      type: object
+    IncidentInitialUserDefinedFieldChoices:
+      description: The initial choice selections.
+      properties:
+        choice_id:
+          description: The user-defined field choice being initially selected.
+          example: bfba0c19960c580c9e0d126ca99dcd0e
+          type: string
+        field_id:
+          description: The user-defined field ID for which an initial selection is
+            being made.
+          example: 1ca4bb7cf8925045b0cf7905d19e42df
+          type: string
+      required:
+      - field_id
+      - choice_id
+      type: object
+    IncidentIntegrationMetadata:
+      description: Represents a selection for a particular field and object of that
+        field's `table_id`.
+      properties:
+        attributes:
+          description: The selection's attributes.
+          properties:
+            completed:
+              description: Timestamp when a metadata was completed.
+              format: date-time
+              readOnly: true
+              type: string
+            created:
+              description: Timestamp when a metadata was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                integration metadata.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this integration metadata.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            integration_type:
+              $ref: '#/components/schemas/IncidentIntegrationMetadataTypeID'
+            last_modified_by:
+              description: An embedded JSON API object of the user who most recently
+                modified this integration metadata.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this integration metadata.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            metadata:
+              description: Structured metadata content for the integration type.
+              type: string
+            modified:
+              description: Timestamp when a metadata was modified.
+              format: date-time
+              readOnly: true
+              type: string
+          type: object
+        id:
+          description: The selection's ID.
+          example: b229d4cddfa35f02a82a878cabf5889b
+          readOnly: true
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/IncidentIntegrationMetadataType'
+      required:
+      - id
+      - type
+      type: object
+    IncidentIntegrationMetadataArray:
+      description: An array of incident integration metadata.
+      items:
+        $ref: '#/components/schemas/IncidentIntegrationMetadata'
+      type: array
+    IncidentIntegrationMetadataListResponse:
+      description: Represents the JSON API Payload of a list of incident integration
+        metadata Items.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentIntegrationMetadataArray'
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentIntegrationMetadataRequest:
+      description: JSON API request with an incident integration metadata payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentIntegrationMetadata'
+      required:
+      - data
+      type: object
+    IncidentIntegrationMetadataResponse:
+      description: Represents the JSON API Payload of an Incident integration metadata
+        item.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentIntegrationMetadata'
+      required:
+      - data
+      type: object
+    IncidentIntegrationMetadataType:
+      default: incident_integration_metadata
+      description: Incident integration metadata resource type.
+      enum:
+      - incident_integration_metadata
+      type: string
+      x-enum-varnames:
+      - incident_integration_metadata
+    IncidentIntegrationMetadataTypeID:
+      description: The integration type identifier.
+      enum:
+      - 0
+      - 1
+      - 2
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - slack
+      - zoom
+      - pagerduty
+    IncidentListResponse:
+      description: Represents the JSON API Payload of a list of incident items.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentPostmortem:
+      description: Represents an incident postmortem Item.
+      properties:
+        attributes:
+          description: The postmortem's attributes.
+          properties:
+            created:
+              description: Timestamp of when an postmortem was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: The user who created this postmortem.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            deleted:
+              description: Timestamp of when an postmortem was deleted.
+              format: date-time
+              readOnly: true
+              type: string
+            incident_id:
+              description: ID of the incident for this postmortem.
+              readOnly: true
+              type: string
+            last_modified_by:
+              description: The user who most recently modified this postmortem.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            modified:
+              description: Timestamp of when an postmortem was modified.
+              format: date-time
+              readOnly: true
+              type: string
+            owner:
+              description: The user who owns this postmortem.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+          type: object
+        id:
+          description: The postmortem's ID.
+          example: cbbe9e15d3bf55858eee5ffad3619798
+          readOnly: true
+          type: string
+        relationships:
+          description: JSON API relationships.
+          properties:
+            created_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+            last_modified_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+            owner_user:
+              $ref: '#/components/schemas/UserRelationship'
+            user_defined_field_selections:
+              description: The selections which have been made for this postmortem's
+                user-defined fields.
+              properties:
+                data:
+                  description: The selection ID array.
+                  items:
+                    $ref: '#/components/schemas/UserDefinedFieldSelectionRelationship'
+                  type: array
+              type: object
+            user_defined_fields:
+              description: The user-defined fields which are defined for the postmortem
+                `table_id` in the requesting user's organization.
+              properties:
+                data:
+                  description: The field ID array.
+                  items:
+                    $ref: '#/components/schemas/UserDefinedFieldRelationship'
+                  type: array
+              type: object
+          type: object
+        type:
+          $ref: '#/components/schemas/PostmortemType'
+      required:
+      - id
+      - type
+      type: object
+    IncidentPostmortemArray:
+      description: An Array of Postmortems.
+      items:
+        $ref: '#/components/schemas/IncidentPostmortem'
+      type: array
+    IncidentPostmortemIncludedItems:
+      description: An object related to a postmortem which is included in the JSON
+        API response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      - $ref: '#/components/schemas/UserDefinedField'
+      - $ref: '#/components/schemas/UserDefinedFieldSelection'
+      type: object
+    IncidentPostmortemListResponse:
+      description: JSON API response with a list of postmortem payloads.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentPostmortemArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentPostmortemIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentPostmortemRequest:
+      description: JSON API request with a postmortem payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentPostmortem'
+        included:
+          description: The User relationships.
+          items:
+            $ref: '#/components/schemas/User'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    IncidentPostmortemResponse:
+      description: JSON API response with a postmortem payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentPostmortem'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentPostmortemIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    IncidentRequest:
+      description: JSON API request with a incident payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/Incident'
+      required:
+      - data
+      type: object
+    IncidentResponse:
+      description: Represents the JSON API Payload of an Incident Item.
+      properties:
+        data:
+          $ref: '#/components/schemas/Incident'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    IncidentResponseWithoutIncluded:
+      description: Represents the JSON API payload of an incident item.
+      properties:
+        data:
+          $ref: '#/components/schemas/Incident'
+      required:
+      - data
+      type: object
+    IncidentSearch:
+      description: Represents an incident search.
+      properties:
+        attributes:
+          description: The incident search attributes.
+          properties:
+            facets:
+              additionalProperties:
+                $ref: '#/components/schemas/IncidentFacetSchema'
+              description: A mapping of search facets by facet name.
+              nullable: true
+              readOnly: true
+              type: object
+            incidents:
+              description: The matched incidents, if any.
+              items:
+                $ref: '#/components/schemas/IncidentResponseWithoutIncluded'
+              readOnly: true
+              type: array
+            total:
+              description: The total count of matched incidents.
+              format: int64
+              readOnly: true
+              type: integer
+            type:
+              $ref: '#/components/schemas/IncidentSearchType'
+          type: object
+      type: object
+    IncidentSearchIncludedItems:
+      description: An object related to search results which is included in the JSON
+        API response.
+      oneOf:
+      - $ref: '#/components/schemas/Incident'
+      type: object
+    IncidentSearchResponse:
+      description: Represents the JSON API payload of a list of incident items.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentSearch'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentSearchIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentSearchType:
+      default: incidents_search_results
+      description: Incident search resource type.
+      enum:
+      - incidents_search_results
+      type: string
+      x-enum-varnames:
+      - incidents_search_results
+    IncidentTagKeyResults:
+      description: A set of tag keys to be used in customized field definitions on
+        incident management configuration.
+      properties:
+        attributes:
+          description: The result set's attributes.
+          properties:
+            keys:
+              description: The matched tag keys if any.
+              items:
+                description: Tag keys reported elsewhere in the platform.
+                example: env
+                type: string
+              readOnly: true
+              type: array
+            query:
+              description: The query used to search tag keys.
+              example: datacenter
+              type: string
+            total:
+              description: The total count of matched tag keys.
+              format: int64
+              readOnly: true
+              type: integer
+          type: object
+        type:
+          $ref: '#/components/schemas/IncidentTagKeyResultsType'
+      required:
+      - type
+      type: object
+    IncidentTagKeyResultsResponse:
+      description: JSON API response with a tag key results payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTagKeyResults'
+      required:
+      - data
+      type: object
+    IncidentTagKeyResultsType:
+      default: incident_tag_key_results
+      description: Tag key results resource type.
+      enum:
+      - incident_tag_key_results
+      type: string
+      x-enum-varnames:
+      - incident_tag_key_results
+    IncidentTagValueResults:
+      description: A set of tag values to be used in customized field selections.
+      properties:
+        attributes:
+          description: The result set's attributes.
+          properties:
+            query:
+              description: The query used to search tag values.
+              example: example
+              type: string
+            total:
+              description: The total count of matched tag values.
+              format: int64
+              readOnly: true
+              type: integer
+            values:
+              description: The matched tag values if any.
+              items:
+                description: Tag values reported elsewhere in the platform.
+                example: example_tag_value
+                type: string
+              readOnly: true
+              type: array
+          type: object
+        type:
+          $ref: '#/components/schemas/IncidentTagValueResultsType'
+      required:
+      - type
+      type: object
+    IncidentTagValueResultsResponse:
+      description: JSON API response with a tag value results payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTagValueResults'
+      required:
+      - data
+      type: object
+    IncidentTagValueResultsType:
+      default: incident_tag_value_results
+      description: Tag value results resource type.
+      enum:
+      - incident_tag_value_results
+      type: string
+      x-enum-varnames:
+      - incident_tag_value_results
+    IncidentTimelineCell:
+      description: JSON API Schema representation an Incident Timeline Cell.
+      properties:
+        attributes:
+          $ref: '#/components/schemas/IncidentTimelineCellAttributes'
+        id:
+          description: The timeline cell's ID.
+          example: 6a4d57b26fed5e1d857d509914e8fa24
+          readOnly: true
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/IncidentTimelineCellType'
+      required:
+      - id
+      - type
+      type: object
+    IncidentTimelineCellActionType:
+      description: Action that resulted in the creation of the timeline cell.
+      enum:
+      - created
+      - updated
+      - deleted
+      example: created
+      nullable: false
+      type: string
+      x-enum-varnames:
+      - CREATED
+      - UPDATED
+      - DELETED
+    IncidentTimelineCellArray:
+      description: An array of Incident Timeline Cells.
+      items:
+        $ref: '#/components/schemas/IncidentTimelineCell'
+      type: array
+    IncidentTimelineCellAttributes:
+      description: The timeline cell's attributes. This is used both as a payload
+        return as well as can be used to initialize an incident.
+      oneOf:
+      - $ref: '#/components/schemas/IncidentTimelineCellMarkdownContent'
+      - $ref: '#/components/schemas/IncidentTimelineCellStatusChangeContent'
+      - $ref: '#/components/schemas/IncidentTimelineCellTodoChangeContent'
+      - $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeContent'
+      required:
+      - cell_type
+      type: object
+    IncidentTimelineCellCreatedByUserEmbedded:
+      description: An embedded JSON API object of the user who created this timeline
+        cell.
+      properties:
+        data:
+          $ref: '#/components/schemas/EmbeddedIncidentsUser'
+      readOnly: true
+      type: object
+    IncidentTimelineCellIncludedItems:
+      description: An object related to a user-defined field which is included in
+        the JSON API response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      type: object
+    IncidentTimelineCellIntegrationChangeContent:
+      description: An integration change cell content schema.
+      properties:
+        cell_type:
+          $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeContentType'
+        content:
+          description: The timeline cell content.
+          properties:
+            action:
+              $ref: '#/components/schemas/IncidentTimelineCellActionType'
+            after:
+              $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeContentData'
+            before:
+              $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeContentData'
+            current_state:
+              description: The state of the incident at the time for which this cell
+                appears.
+              example: active
+              nullable: false
+              type: string
+            integration_type:
+              $ref: '#/components/schemas/IncidentTimelineCellIntegrationType'
+          type: object
+        created:
+          description: Timestamp of when a cell was created.
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          $ref: '#/components/schemas/IncidentTimelineCellCreatedByUserEmbedded'
+        created_by_uuid:
+          description: The ID of the user who created this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        deleted:
+          description: Timestamp of when a cell was deleted.
+          format: date-time
+          readOnly: true
+          type: string
+        display_time:
+          description: Timestamp of display time for a given cell. This is used to
+            sort the timeline view.
+          format: date-time
+          readOnly: true
+          type: string
+        important:
+          default: false
+          description: A flag for whether the timeline cell should be highlighted.
+          example: false
+          type: boolean
+        last_modified_by:
+          $ref: '#/components/schemas/IncidentTimelineCellLastModifiedByUserEmbedded'
+        last_modified_uuid:
+          description: The ID of the user who last modified this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        modified:
+          description: Timestamp of when a cell was modified.
+          format: date-time
+          readOnly: true
+          type: string
+        source:
+          description: A string representing the source of the cell.
+          example: datadog
+          nullable: true
+          type: string
+      required:
+      - content
+      type: object
+    IncidentTimelineCellIntegrationChangeContentData:
+      description: Timeline cell integration content data comes in one of several
+        types.
+      oneOf:
+      - $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeSlackContentData'
+      - $ref: '#/components/schemas/IncidentTimelineCellIntegrationChangeZoomContentData'
+      type: object
+    IncidentTimelineCellIntegrationChangeContentType:
+      default: incident_integration_change
+      description: Type of timeline cell.
+      enum:
+      - incident_integration_change
+      example: incident_integration_change
+      type: string
+      x-enum-varnames:
+      - incident_integration_change
+    IncidentTimelineCellIntegrationChangeSlackContentData:
+      description: Slack Integration Change timeline cell content.
+      properties:
+        channels:
+          description: Slack channels associated with the incident.
+          items:
+            description: Schema of the before and after fields of a slack integration
+              change cell's content.
+            properties:
+              channel_id:
+                description: Slack channel id.
+                nullable: false
+                type: string
+              channel_name:
+                description: Slack channel name.
+                nullable: false
+                type: string
+              redirect_url:
+                description: Slack channel link.
+                nullable: false
+                type: string
+              team_id:
+                description: Slack channel team id.
+                nullable: false
+                type: string
+            type: object
+          readOnly: true
+          type: array
+      type: object
+    IncidentTimelineCellIntegrationChangeZoomContentData:
+      description: Zoom Integration Change timeline cell content.
+      properties:
+        rooms:
+          description: Zoom rooms associated with the incident.
+          items:
+            description: Schema of the before and after fields of a zoom integration
+              change cell's content.
+            properties:
+              redirect_url:
+                description: Zoom room link.
+                nullable: false
+                type: string
+              room_id:
+                description: Zoom room id.
+                nullable: false
+                type: string
+              room_name:
+                description: Zoom room name.
+                nullable: false
+                type: string
+            type: object
+          readOnly: true
+          type: array
+      type: object
+    IncidentTimelineCellIntegrationType:
+      description: Integration type.
+      enum:
+      - 1
+      - 2
+      example: 1
+      nullable: false
+      type: integer
+      x-enum-varnames:
+      - SLACK
+      - ZOOM
+    IncidentTimelineCellLastModifiedByUserEmbedded:
+      description: An embedded JSON API object of the user who last modified this
+        timeline cell.
+      properties:
+        data:
+          $ref: '#/components/schemas/EmbeddedIncidentsUser'
+      readOnly: true
+      type: object
+    IncidentTimelineCellListResponse:
+      description: JSON API response with a list of timeline cell payloads.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTimelineCellArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentTimelineCellIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentTimelineCellMarkdownContent:
+      description: A Markdown cell content schema.
+      properties:
+        cell_type:
+          $ref: '#/components/schemas/IncidentTimelineCellMarkdownContentType'
+        content:
+          description: The markdown cell contents.
+          properties:
+            content:
+              description: The markdown content of the cell.
+              example: '{"key":"value"}'
+              nullable: false
+              type: string
+            current_state:
+              description: The state of the incident at the time for which this cell
+                appears.
+              example: active
+              nullable: false
+              type: string
+          type: object
+        created:
+          description: Timestamp of when a cell was created.
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          $ref: '#/components/schemas/IncidentTimelineCellCreatedByUserEmbedded'
+        created_by_uuid:
+          description: The ID of the user who created this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        deleted:
+          description: Timestamp of when a cell was deleted.
+          format: date-time
+          readOnly: true
+          type: string
+        display_time:
+          description: Timestamp of display time for a given cell. This is used to
+            sort the timeline view.
+          format: date-time
+          readOnly: true
+          type: string
+        important:
+          default: false
+          description: A flag for whether the timeline cell should be highlighted.
+          example: false
+          type: boolean
+        last_modified_by:
+          $ref: '#/components/schemas/IncidentTimelineCellLastModifiedByUserEmbedded'
+        last_modified_uuid:
+          description: The ID of the user who last modified this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        modified:
+          description: Timestamp of when a cell was modified.
+          format: date-time
+          readOnly: true
+          type: string
+        source:
+          description: A string representing the source of the cell.
+          example: slack
+          nullable: true
+          type: string
+      required:
+      - content
+      type: object
+    IncidentTimelineCellMarkdownContentType:
+      default: markdown
+      description: Type of the markdown timeline cell.
+      enum:
+      - markdown
+      example: markdown
+      type: string
+      x-enum-varnames:
+      - MARKDOWN
+    IncidentTimelineCellRequest:
+      description: JSON API request with a timeline cell payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTimelineCell'
+      required:
+      - data
+      type: object
+    IncidentTimelineCellResponse:
+      description: JSON API response with a timeline cell payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTimelineCell'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentTimelineCellIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    IncidentTimelineCellStatusChangeContent:
+      description: A Status Change cell content schema.
+      properties:
+        cell_type:
+          $ref: '#/components/schemas/IncidentTimelineCellStatusChangeContentType'
+        content:
+          description: The status change cell content.
+          properties:
+            action:
+              $ref: '#/components/schemas/IncidentTimelineCellActionType'
+            after:
+              $ref: '#/components/schemas/IncidentTimelineCellStatusChangeDiffContent'
+            before:
+              $ref: '#/components/schemas/IncidentTimelineCellStatusChangeDiffContent'
+            current_state:
+              description: The state of the incident at the time for which this cell
+                appears.
+              example: active
+              nullable: false
+              type: string
+            status_type:
+              description: A string representing the status change type.
+              example: incident
+              nullable: false
+              type: string
+          type: object
+        created:
+          description: Timestamp of when a cell was created.
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          $ref: '#/components/schemas/IncidentTimelineCellCreatedByUserEmbedded'
+        created_by_uuid:
+          description: The ID of the user who created this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        deleted:
+          description: Timestamp of when a cell was deleted.
+          format: date-time
+          readOnly: true
+          type: string
+        display_time:
+          description: Timestamp of display time for a given cell. This is used to
+            sort the timeline view.
+          format: date-time
+          readOnly: true
+          type: string
+        important:
+          default: false
+          description: A flag for whether the timeline cell should be highlighted.
+          example: false
+          type: boolean
+        last_modified_by:
+          $ref: '#/components/schemas/IncidentTimelineCellLastModifiedByUserEmbedded'
+        last_modified_uuid:
+          description: The ID of the user who last modified this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        modified:
+          description: Timestamp of when a cell was modified.
+          format: date-time
+          readOnly: true
+          type: string
+        source:
+          description: A string representing the source of the cell.
+          example: slack
+          nullable: true
+          type: string
+      required:
+      - content
+      type: object
+    IncidentTimelineCellStatusChangeContentType:
+      default: incident_status_change
+      description: Type of the markdown timeline cell.
+      enum:
+      - incident_status_change
+      example: incident_status_change
+      type: string
+      x-enum-varnames:
+      - incident_status_change
+    IncidentTimelineCellStatusChangeDiffContent:
+      description: Schema of the before and after fields of a status change cell's
+        content.
+      properties:
+        content:
+          description: The content of the status change for the cell.
+          nullable: false
+          type: string
+        customer_impact_end:
+          description: Timestamp of when customers/users were no longer impacted by
+            the incident.
+          format: date-time
+          nullable: true
+          type: string
+        customer_impact_scope:
+          description: The scope at which customers were impacted.
+          nullable: true
+          type: string
+        customer_impact_start:
+          description: Timestamp of when customers/users were impacted by the incident.
+          format: date-time
+          nullable: true
+          type: string
+        customer_impacted:
+          description: True if customers/users were impacted by the incident.
+          nullable: true
+          type: boolean
+        detected:
+          description: Timestamp of when an incident was detected.
+          format: date-time
+          nullable: true
+          type: string
+        resolved:
+          description: Timestamp of when an incident was resolved.
+          format: date-time
+          nullable: true
+          type: string
+        selections:
+          description: A snapshot of the current services.
+          items:
+            description: A user-defined field selection item.
+            properties:
+              choices:
+                description: The associated user defined field.
+                items:
+                  properties:
+                    name:
+                      description: The choice name if available.
+                      nullable: true
+                      type: string
+                    selection_id:
+                      description: The selection id associated with the choice.
+                      nullable: false
+                      type: string
+                    value:
+                      description: The choice value, will be the override value if
+                        no choice name is available.
+                      nullable: false
+                      type: string
+                nullable: false
+                type: array
+              field:
+                description: The associated user defined field.
+                nullable: false
+                properties:
+                  id:
+                    description: The field ID.
+                    nullable: false
+                    type: string
+                  name:
+                    description: The field name.
+                    nullable: false
+                    type: string
+                  table_id:
+                    description: The table ID for this field.
+                    nullable: false
+                    type: string
+                type: object
+            type: object
+          nullable: true
+          type: array
+        services:
+          description: A snapshot of the current services.
+          items:
+            description: A service object.
+            properties:
+              id:
+                description: The service ID.
+                nullable: false
+                type: string
+              name:
+                description: The service name.
+                nullable: false
+                type: string
+            type: object
+          nullable: true
+          type: array
+        state:
+          description: The current state if an incident.
+          example: active
+          nullable: true
+          type: string
+        teams:
+          description: A snapshot of the current teams.
+          items:
+            description: A team object.
+            properties:
+              id:
+                description: The team ID.
+                nullable: false
+                type: string
+              name:
+                description: The team name.
+                nullable: false
+                type: string
+            type: object
+          nullable: true
+          type: array
+        title:
+          description: The title of the incident.
+          nullable: true
+          type: string
+      type: object
+    IncidentTimelineCellTodoChangeContent:
+      description: A to-do change cell content schema.
+      properties:
+        cell_type:
+          $ref: '#/components/schemas/IncidentTimelineCellTodoChangeContentType'
+        content:
+          description: The to-do change cell content.
+          properties:
+            action:
+              $ref: '#/components/schemas/IncidentTimelineCellActionType'
+            after:
+              $ref: '#/components/schemas/IncidentTimelineCellTodoChangeContentData'
+            before:
+              $ref: '#/components/schemas/IncidentTimelineCellTodoChangeContentData'
+            current_state:
+              description: The state of the incident at the time for which this cell
+                appears.
+              example: active
+              nullable: false
+              type: string
+          type: object
+        created:
+          description: Timestamp of when a cell was created.
+          format: date-time
+          readOnly: true
+          type: string
+        created_by:
+          $ref: '#/components/schemas/IncidentTimelineCellCreatedByUserEmbedded'
+        created_by_uuid:
+          description: The ID of the user who created this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        deleted:
+          description: Timestamp of when a cell was deleted.
+          format: date-time
+          readOnly: true
+          type: string
+        display_time:
+          description: Timestamp of display time for a given cell. This is used to
+            sort the timeline view.
+          format: date-time
+          readOnly: true
+          type: string
+        important:
+          default: false
+          description: A flag for whether the timeline cell should be highlighted.
+          example: false
+          type: boolean
+        last_modified_by:
+          $ref: '#/components/schemas/IncidentTimelineCellLastModifiedByUserEmbedded'
+        last_modified_uuid:
+          description: The ID of the user who last modified this timeline cell.
+          example: 00000000-0000-0000-0000-000000000000
+          readOnly: true
+          type: string
+        modified:
+          description: Timestamp of when a cell was modified.
+          format: date-time
+          readOnly: true
+          type: string
+        source:
+          description: A string representing the source of the cell.
+          example: slack
+          nullable: true
+          type: string
+      required:
+      - content
+      type: object
+    IncidentTimelineCellTodoChangeContentData:
+      description: Schema of the before and after fields of a to-do change cell's
+        content.
+      properties:
+        completed:
+          description: The to-do completed timestamp.
+          format: date-time
+          nullable: false
+          type: string
+        content:
+          description: The to-do content.
+          nullable: false
+          type: string
+        id:
+          description: The to-do id.
+          example: 073388a00b8c5f31b6ebd2cad86d05c3
+          nullable: false
+          type: string
+      type: object
+    IncidentTimelineCellTodoChangeContentType:
+      default: incident_todo_change
+      description: Type of the markdown timeline cell.
+      enum:
+      - incident_todo_change
+      example: incident_todo_change
+      type: string
+      x-enum-varnames:
+      - incident_todo_change
+    IncidentTimelineCellType:
+      default: incident_timeline_cells
+      description: Timeline cell resource type.
+      enum:
+      - incident_timeline_cells
+      type: string
+      x-enum-varnames:
+      - incident_timeline_cells
+    IncidentToDoIncludedItems:
+      description: An object related to an incident to-do which is included in the
+        JSON API response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      type: object
+    IncidentToDoType:
+      default: incident_todos
+      description: Incident to-do resource type.
+      enum:
+      - incident_todos
+      type: string
+      x-enum-varnames:
+      - incident_todos
+    IncidentTodo:
+      description: A to-do task which needs to be finished for an incident.
+      properties:
+        attributes:
+          description: The to-do's attributes.
+          properties:
+            completed:
+              description: Timestamp of when the to-do was marked completed.
+              format: date-time
+              nullable: true
+              type: string
+            content:
+              description: A string describing the task to be done.
+              type: string
+            created:
+              description: Timestamp of when the to-do was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                to-do.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this to-do.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            incident_id:
+              description: The ID of the incident to which this to-do is attached.
+              readOnly: true
+              type: string
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this to-do.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this to-do.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when the to-do was modified.
+              format: date-time
+              readOnly: true
+              type: string
+          type: object
+        id:
+          description: The to-do's ID.
+          example: 03ad14ee08b05416bfa59740198d7ebd
+          readOnly: true
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/IncidentToDoType'
+      required:
+      - id
+      - type
+      type: object
+    IncidentTodoArray:
+      description: The Incident to-dos.
+      items:
+        $ref: '#/components/schemas/IncidentTodo'
+      type: array
+    IncidentTodoListResponse:
+      description: Represents the JSON API Payload of a List of Incident to-do Items.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTodoArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentToDoIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    IncidentTodoRequest:
+      description: JSON API request with an incident to-do payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTodo'
+      required:
+      - data
+      type: object
+    IncidentTodoResponse:
+      description: Represents the JSON API Payload of an Incident to-do Item.
+      properties:
+        data:
+          $ref: '#/components/schemas/IncidentTodo'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/IncidentToDoIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    IncidentType:
+      default: incidents
+      description: Incident resource type.
+      enum:
+      - incidents
+      type: string
+      x-enum-varnames:
+      - incidents
     Log:
       description: Object description of a log after being processed and stored by
         Datadog.
@@ -1142,6 +3222,15 @@ components:
           format: int64
           type: integer
       type: object
+    PercentilesIncidentFacetType:
+      default: aggregation_percentiles
+      description: Type of the percentiles aggregation facet.
+      enum:
+      - aggregation_percentiles
+      example: aggregation_percentiles
+      type: string
+      x-enum-varnames:
+      - aggregation_percentiles
     Permission:
       description: Permission object.
       properties:
@@ -1199,6 +3288,38 @@ components:
       type: string
       x-enum-varnames:
       - PERMISSIONS
+    PostmortemType:
+      default: incident_postmortems
+      description: Incident postmortem resource type.
+      enum:
+      - incident_postmortems
+      type: string
+      x-enum-varnames:
+      - incident_postmortems
+    QueryMetadata:
+      description: The query metadata containing pagination metadata.
+      properties:
+        pagination:
+          description: Pagination properties.
+          properties:
+            next_number:
+              description: The next page to retrieve the next set of data.
+              example: 1000
+              format: int64
+              type: integer
+            number:
+              description: The index of the first element in the results.
+              example: 10
+              format: int64
+              type: integer
+            size:
+              description: Maximum size of pages to return.
+              example: 1000
+              format: int64
+              type: integer
+          type: object
+      readOnly: true
+      type: object
     QuerySortOrder:
       default: desc
       description: Direction of sort.
@@ -2163,6 +4284,217 @@ components:
       x-enum-varnames:
       - TIMESTAMP_ASCENDING
       - TIMESTAMP_DESCENDING
+    Service:
+      description: Represents a Service Item.
+      properties:
+        attributes:
+          description: The JSON API schema attributes.
+          properties:
+            created:
+              description: Timestamp of when the service was created.
+              format: date-time
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when the service was modified.
+              format: date-time
+              readOnly: true
+              type: string
+            name:
+              description: Name of the service.
+              example: service name
+              type: string
+          type: object
+        id:
+          description: The service's ID.
+          example: fc9b135f77705831b1fdd2b9f56152ba
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/ServiceType'
+      type: object
+    ServiceArray:
+      description: An array of services.
+      items:
+        $ref: '#/components/schemas/Service'
+      type: array
+    ServiceIncludedItems:
+      description: An object related to a service which is included in the JSON API
+        response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      type: object
+    ServiceListResponse:
+      description: Represents the JSON API payload of a list of service items.
+      properties:
+        data:
+          $ref: '#/components/schemas/ServiceArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/ServiceIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    ServiceRelationship:
+      description: Service relationship data.
+      properties:
+        id:
+          description: A unique identifier that represents the service.
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        type:
+          $ref: '#/components/schemas/ServiceType'
+      type: object
+    ServiceRequest:
+      description: JSON API request with a service payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/Service'
+      required:
+      - data
+      type: object
+    ServiceResponse:
+      description: JSON API response with a service payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/Service'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/ServiceIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    ServiceType:
+      default: services
+      description: Service resource type.
+      enum:
+      - services
+      type: string
+      x-enum-varnames:
+      - services
+    StatsIncidentFacetType:
+      default: aggregation_stats
+      description: Type of the stats aggregation facet.
+      enum:
+      - aggregation_stats
+      example: aggregation_stats
+      type: string
+      x-enum-varnames:
+      - aggregation_stats
+    Team:
+      description: Represents a team item.
+      properties:
+        attributes:
+          description: The JSON API Schema attributes.
+          properties:
+            created:
+              description: Timestamp of when the team was created.
+              format: date-time
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when the team was modified.
+              format: date-time
+              readOnly: true
+              type: string
+            name:
+              description: Name of the team.
+              example: team name
+              type: string
+          type: object
+        id:
+          description: The team's ID.
+          example: fc9b135f77705831b1fdd2b9f56152ba
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/TeamType'
+      type: object
+    TeamArray:
+      description: An array of teams.
+      items:
+        $ref: '#/components/schemas/Team'
+      type: array
+    TeamIncludedItems:
+      description: An object related to a team which is included in the JSON API response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      type: object
+    TeamListResponse:
+      description: JSON API response with a list of team payloads.
+      properties:
+        data:
+          $ref: '#/components/schemas/TeamArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/TeamIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    TeamRelationship:
+      description: Team relationship data.
+      properties:
+        id:
+          description: A unique identifier that represents the team.
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        type:
+          $ref: '#/components/schemas/TeamType'
+      type: object
+    TeamRequest:
+      description: JSON API request with a team payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/Team'
+      required:
+      - data
+      type: object
+    TeamResponse:
+      description: JSON API response with a team payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/Team'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/TeamIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    TeamType:
+      default: teams
+      description: Team resource type.
+      enum:
+      - teams
+      type: string
+      x-enum-varnames:
+      - teams
+    TermsIncidentFacetType:
+      default: aggregation_terms
+      description: Type of the terms aggregation facet.
+      enum:
+      - aggregation_terms
+      example: aggregation_terms
+      type: string
+      x-enum-varnames:
+      - aggregation_terms
     User:
       description: User object returned by the API.
       properties:
@@ -2237,6 +4569,476 @@ components:
         data:
           $ref: '#/components/schemas/UserCreateData'
       type: object
+    UserDefinedField:
+      description: A customized field defined by users and attached to a certain object
+        type (incidents, etc).
+      properties:
+        attributes:
+          description: The field's attributes.
+          properties:
+            created:
+              description: Timestamp of when the field was created.
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                field.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            default_choice_id:
+              description: ID of the default choice which is selected for each new
+                object of the field's assigned `table_id` type.
+              example: e2d172d386ef525c967d90be94c239b9
+              type: string
+            deleted:
+              description: Timestamp of when the field was deleted.
+              format: date-time
+              readOnly: true
+              type: string
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this field.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this field.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when the field was modified.
+              format: date-time
+              readOnly: true
+              type: string
+            name:
+              description: Name of the field.
+              example: state
+              type: string
+            prerequisite:
+              description: A label for boolean fields of the assigned `table_id` type
+                which must be true for this field to be displayed.
+              type: string
+            table_id:
+              $ref: '#/components/schemas/UserDefinedFieldTable'
+            type:
+              $ref: '#/components/schemas/UserDefinedFieldTypeID'
+          type: object
+        id:
+          description: The field's ID.
+          example: a91169ea3eb950dd85cc2a58c5a2d2c6
+          type: string
+        relationships:
+          description: JSON API relationships.
+          properties:
+            choices:
+              description: The choices available for selection on this field.
+              properties:
+                data:
+                  description: The choice ID array.
+                  items:
+                    $ref: '#/components/schemas/UserDefinedFieldChoiceRelationship'
+                  type: array
+              type: object
+            created_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+            last_modified_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+          type: object
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldType'
+      required:
+      - id
+      - type
+      type: object
+    UserDefinedFieldArray:
+      description: An array of Incident configuration fields.
+      items:
+        $ref: '#/components/schemas/UserDefinedField'
+      type: array
+    UserDefinedFieldChoice:
+      description: A choice which can be selected for a user-defined field.
+      properties:
+        attributes:
+          description: The choice's attributes.
+          properties:
+            created:
+              description: Timestamp of when the choice was created
+              format: date-time
+              readOnly: true
+              type: string
+            created_by:
+              description: An embedded JSON API object of the user who created this
+                choice.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            created_by_uuid:
+              description: The ID of the user who created this choice.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            deleted:
+              description: Timestamp of when the choice was deleted.
+              format: date-time
+              readOnly: true
+              type: string
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this choice.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_uuid:
+              description: The ID of the user who last modified this choice.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when the choice was modified
+              format: date-time
+              readOnly: true
+              type: string
+            name:
+              description: Human-readable name of the choice.
+              example: Active
+              type: string
+            user_defined_field_id:
+              description: The ID of the field for which this choice can be selected.
+              example: '123'
+              type: string
+            value:
+              description: Value of the choice.
+              example: active
+              type: string
+          type: object
+        id:
+          description: The choice's ID.
+          example: 8809e2e9c15a5916979a473e30332ef1
+          type: string
+        relationships:
+          $ref: '#/components/schemas/BasicUserRelationships'
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldChoiceType'
+      required:
+      - id
+      - type
+      type: object
+    UserDefinedFieldChoiceArray:
+      description: An array of User Defined Choices.
+      items:
+        $ref: '#/components/schemas/UserDefinedFieldChoice'
+      type: array
+    UserDefinedFieldChoiceIncludedItems:
+      description: An object related to a user-defined field which is included in
+        the JSON API response.
+      oneOf:
+      - $ref: '#/components/schemas/User'
+      type: object
+    UserDefinedFieldChoiceListPayload:
+      description: JSON API response with a list of user-defined field choice payloads.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldChoiceArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldChoiceIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    UserDefinedFieldChoiceRelationship:
+      description: Choice relationship data.
+      properties:
+        id:
+          description: A unique identifier that represents the choice.
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldChoiceType'
+      type: object
+    UserDefinedFieldChoiceRequest:
+      description: JSON API request with a user-defined field choice payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldChoice'
+      required:
+      - data
+      type: object
+    UserDefinedFieldChoiceResponse:
+      description: JSON API response with a user-defined field choice payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldChoice'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldChoiceIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    UserDefinedFieldChoiceType:
+      default: user_defined_choice
+      description: User-defined field choice resource type.
+      enum:
+      - user_defined_choice
+      type: string
+      x-enum-varnames:
+      - user_defined_choice
+    UserDefinedFieldIncludedItems:
+      description: An object related to a user-defined field which is included in
+        the JSON API response.
+      oneOf:
+      - $ref: '#/components/schemas/EmbeddedIncidentsUser'
+      - $ref: '#/components/schemas/UserDefinedFieldChoice'
+      type: object
+    UserDefinedFieldListResponse:
+      description: JSON API response with a list of user-defined field payloads.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    UserDefinedFieldRelationship:
+      description: Field relationship data.
+      properties:
+        id:
+          description: A unique identifier that represents the field.
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldType'
+      type: object
+    UserDefinedFieldRequest:
+      description: JSON API request with a user-defined field payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedField'
+      required:
+      - data
+      type: object
+    UserDefinedFieldResponse:
+      description: JSON API response with a user-defined field payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedField'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    UserDefinedFieldSelection:
+      description: Represents a selection for a particular field and object of that
+        field's table_id.
+      properties:
+        attributes:
+          description: The selection's attributes.
+          properties:
+            choice_override:
+              description: The choice value to be used with text box field types.
+              example: Any free text value can be stored in the override
+              type: string
+            created:
+              description: Timestamp of when an selection was created.
+              format: date-time
+              readOnly: true
+              type: string
+            deleted:
+              description: Timestamp of when an selection was deleted.
+              format: date-time
+              readOnly: true
+              type: string
+            last_modified_by:
+              description: An embedded JSON API object of the user who last modified
+                this selection.
+              properties:
+                data:
+                  $ref: '#/components/schemas/EmbeddedIncidentsUser'
+              readOnly: true
+              type: object
+            last_modified_by_uuid:
+              description: The ID of the user who last modified this selection.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+            modified:
+              description: Timestamp of when an selection was modified.
+              format: date-time
+              readOnly: true
+              type: string
+            object_id:
+              description: The ID of the object for which this selection holds a value.
+              example: 00000000-0000-0000-0000-000000000000
+              readOnly: true
+              type: string
+          type: object
+        id:
+          description: The selection's ID.
+          example: b229d4cddfa35f02a82a878cabf5889b
+          readOnly: true
+          type: string
+        relationships:
+          description: JSON API relationships.
+          properties:
+            choice:
+              description: The user-defined field choice which this selection chooses.
+              properties:
+                data:
+                  $ref: '#/components/schemas/UserDefinedFieldChoiceRelationship'
+              type: object
+            field:
+              description: The user-defined field for which this selections stores
+                a value.
+              properties:
+                data:
+                  $ref: '#/components/schemas/UserDefinedFieldRelationship'
+              type: object
+            last_modified_by_user:
+              $ref: '#/components/schemas/UserRelationship'
+          type: object
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldSelectionType'
+      required:
+      - id
+      - type
+      type: object
+    UserDefinedFieldSelectionArray:
+      description: An array of User Defined Selections.
+      items:
+        $ref: '#/components/schemas/UserDefinedFieldSelection'
+      type: array
+    UserDefinedFieldSelectionIncludedItems:
+      description: An object related to a selection which is included in the JSON
+        API response.
+      oneOf:
+      - $ref: '#/components/schemas/UserDefinedField'
+      - $ref: '#/components/schemas/UserDefinedFieldChoice'
+      type: object
+    UserDefinedFieldSelectionListResponse:
+      description: The JSON API payload of a list of selections.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldSelectionArray'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldSelectionIncludedItems'
+          readOnly: true
+          type: array
+        meta:
+          $ref: '#/components/schemas/QueryMetadata'
+      required:
+      - data
+      type: object
+    UserDefinedFieldSelectionRelationship:
+      description: Field selection relationship data.
+      properties:
+        id:
+          description: A unique identifier that represents the field selection.
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        type:
+          $ref: '#/components/schemas/UserDefinedFieldSelectionType'
+      type: object
+    UserDefinedFieldSelectionRequest:
+      description: JSON API request with a user-defined field selection payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldSelection'
+      required:
+      - data
+      type: object
+    UserDefinedFieldSelectionResponse:
+      description: JSON API response with a user-defined field selection payload.
+      properties:
+        data:
+          $ref: '#/components/schemas/UserDefinedFieldSelection'
+        included:
+          description: Included objects from JSON API relationships.
+          items:
+            $ref: '#/components/schemas/UserDefinedFieldSelectionIncludedItems'
+          readOnly: true
+          type: array
+      required:
+      - data
+      type: object
+    UserDefinedFieldSelectionType:
+      default: user_defined_selection
+      description: User-defined field resource type.
+      enum:
+      - user_defined_selection
+      type: string
+      x-enum-varnames:
+      - user_defined_selection
+    UserDefinedFieldTable:
+      description: ID representing the type of objects to which a field is attached.
+      enum:
+      - 0
+      - 1
+      example: 0
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - INCIDENT
+      - POSTMORTEM
+    UserDefinedFieldType:
+      default: user_defined_field
+      description: User-defined field resource type.
+      enum:
+      - user_defined_field
+      type: string
+      x-enum-varnames:
+      - user_defined_field
+    UserDefinedFieldTypeID:
+      description: ID representing the type of field behavior, such as drop-down or
+        multi-select
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      example: 1
+      format: int32
+      type: integer
+      x-enum-varnames:
+      - DROPDOWN
+      - MULTISELECT
+      - TEXTBOX
+      - TEXTARRAY
     UserInvitationData:
       description: Object to create a user invitation.
       properties:
@@ -2312,6 +5114,20 @@ components:
       type: string
       x-enum-varnames:
       - USER_INVITATIONS
+    UserRelationship:
+      description: JSON API relationship for users.
+      properties:
+        data:
+          description: The User relationship data.
+          properties:
+            id:
+              description: A unique identifier that represents the user.
+              example: 00000000-0000-0000-0000-000000000000
+              type: string
+            type:
+              $ref: '#/components/schemas/UsersType'
+          type: object
+      type: object
     UserRelationships:
       description: Relationships of the user object.
       properties:
@@ -2600,6 +5416,1451 @@ paths:
       tags:
       - Dashboard Lists
       x-codegen-request-body-name: body
+  /api/v2/incidents:
+    get:
+      description: Get all incidents for a given organization. If the `include[users]`
+        query parameter is not set, the included attribute and associated user relationships
+        will not be returned.
+      operationId: GetIncidents
+      parameters:
+      - $ref: '#/components/parameters/IncidentIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get a list of incidents
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new incident.
+      operationId: CreateIncident
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentCreateRequestWithInitialData'
+        description: Incident Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new incident
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/fields:
+    get:
+      description: Get all fields for a given organization. If the `include[users]`
+        query parameter is not set, the included attribute and associated user relationships
+        will not be returned.
+      operationId: GetUserDefinedFields
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      - $ref: '#/components/parameters/UserDefinedFieldIncludeQueryParameter'
+      - $ref: '#/components/parameters/FilterRequiredQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get a list of all configuration fields
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new user-defined field.
+      operationId: CreateUserDefinedField
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldRequest'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldResponse'
+          description: Created
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new user-defined field
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/fields/initialize:
+    post:
+      description: Creates the initial set of reserved fields for the organization.
+        For example, the state field is created for incidents with a default set of
+        choices for states such as "active" or "resolved". These fields must exist
+        for the incident-app to operate as expected. This action must be performed
+        at least once prior to usage of the incident-app.
+      operationId: InitializedUserDefinedFields
+      responses:
+        '201':
+          description: OK
+        '409':
+          $ref: '#/components/responses/409DefaultResponse'
+      summary: Creates the initial user-defined fields
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/fields/{field_id}:
+    delete:
+      description: Deletes an existing field.
+      operationId: DeleteUserDefinedField
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Deletes an existing field
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of a configuration field.
+      operationId: GetUserDefinedField
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get the details of a field
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing field. Only provide the attributes which should
+        be updated as this request is a partial update.
+      operationId: PatchUserDefinedField
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldRequest'
+        description: Incident Configuration Field Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing user-defined field
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/fields/{field_id}/relationships/choices:
+    get:
+      description: Get all choices for a given field. If the `include[users]` query
+        parameter is provided, the included attribute will contain the users related
+        to these user-defined field choices.
+      operationId: GetUserDefinedFieldChoices
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldChoiceIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldChoiceListPayload'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all choices for the given field
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new choice for a user-defined field.
+      operationId: CreateUserDefinedFieldChoice
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldChoiceRequest'
+        description: Incident configuration field choice payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldChoiceResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new choice
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/fields/{field_id}/relationships/choices/{choice_id}:
+    delete:
+      description: Delete an existing choice for a user-defined field.
+      operationId: DeleteUserDefinedFieldChoice
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldChoiceIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Delete an existing choice for a user-defined field
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of a user-defined field choice. If the `include[users]`
+        query parameter is provided, the included attribute will contain the users
+        related to these user-defined field choices.
+      operationId: GetUserDefinedFieldChoice
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldChoiceIDPathParameter'
+      - $ref: '#/components/parameters/WithUsersQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldChoiceResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get the details of a user-defined field choice
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing choice. Only provide the attributes which should
+        be updated as this request performs a partial update.
+      operationId: PatchUserDefinedFieldChoice
+      parameters:
+      - $ref: '#/components/parameters/UserDefinedFieldIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldChoiceIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldChoiceRequest'
+        description: User-defined field choice payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldChoiceResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing choice for a user-defined field
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/tag_keys:
+    get:
+      description: Get tag keys which can be used in user-defined fields of the metric
+        tag type.
+      operationId: GetTagKeys
+      parameters:
+      - $ref: '#/components/parameters/TagKeySearchQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTagKeyResultsResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Search tag keys for use in user-defined fields
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/config/tag_values:
+    get:
+      description: Get values reported for a tag key that can be selected for user-defined
+        fields with that key.
+      operationId: GetTagValues
+      parameters:
+      - $ref: '#/components/parameters/TagKeySearchQueryParameter'
+      - $ref: '#/components/parameters/TagValuesTagKeyQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTagValueResultsResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Search tag values for a key to select on incidents
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/postmortems:
+    get:
+      description: Get all postmortems for a given incident. Note that there should
+        only ever be 0 or 1 postmortems for a given incident.
+      operationId: GetIncidentPostmortems
+      parameters:
+      - $ref: '#/components/parameters/PostmortemIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentPostmortemListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get a list of all Postmortems
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new postmortem for the given incident.
+      operationId: CreateIncidentPostmortem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentPostmortemRequest'
+        description: Incident Postmortem Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentPostmortemResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new postmortem
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/postmortems/{postmortem_id}:
+    delete:
+      description: Deletes an existing postmortem for the given incident.
+      operationId: DeleteIncidentPostmortem
+      parameters:
+      - $ref: '#/components/parameters/IncidentPostmortemIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing postmortem
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get details of a postmortem for the given incident.
+      operationId: GetIncidentPostmortem
+      parameters:
+      - $ref: '#/components/parameters/IncidentPostmortemIDPathParameter'
+      - $ref: '#/components/parameters/PostmortemIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentPostmortemResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get details of a postmortem
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing postmortem. Only provide the attributes which
+        should be updated as this request is a partial update.
+      operationId: PatchIncidentPostmortem
+      parameters:
+      - $ref: '#/components/parameters/IncidentPostmortemIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentPostmortemRequest'
+        description: Incident Postmortem Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentPostmortemResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing postmortem
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/search:
+    get:
+      description: Search for incidents using our string query to retrieve matched
+        queries.
+      operationId: SearchIncidents
+      parameters:
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      - $ref: '#/components/parameters/IncidentSearchQueryQueryParameter'
+      - $ref: '#/components/parameters/IncidentSearchIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentSearchResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Search incidents
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}:
+    delete:
+      description: Deletes an existing incident from the users organization.
+      operationId: DeleteIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Delete an existing incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of an incident by `incident_id` or `public_id`.
+        If querying by `public_id`, set the `is_public_id` query parameter to `true`.
+      operationId: GetIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentIncludeQueryParameter'
+      - description: Set `true` if provided `incident_id` is a `public_id`.
+        in: query
+        name: is_public_id
+        schema:
+          type: boolean
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get the details of an incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing incident. Only provide the attributes which
+        should be updated as this request is a partial update.
+      operationId: PatchIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentRequest'
+        description: Incident Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing incident
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/integrations:
+    get:
+      description: Get all integration metadata items for a given incident.
+      operationId: GetIncidentIntegrationMetadatas
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentIntegrationMetadataListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all metadata items for an incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new integration metadata for the given incident, awaiting
+        completion in the integration to be filled with the relevant metadata.
+      operationId: CreateIncidentIntegrationMetadata
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentIntegrationMetadataRequest'
+        description: Incident integration metadata Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentIntegrationMetadataResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new integration metadata
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/integrations/{metadata_id}:
+    delete:
+      description: Deletes an existing integration metadata for the given incident.
+      operationId: DeleteIncidentIntegrationMetadata
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentIntegrationMetadataIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Deletes a metadata for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of an incident integration metadata.
+      operationId: GetIncidentIntegrationMetadata
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentIntegrationMetadataIDPathParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentIntegrationMetadataResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get details of a metadata
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing integration metadata. Only provide the attributes
+        which should be updated as this request is a partial update.
+      operationId: PatchIncidentIntegrationMetadata
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentIntegrationMetadataIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentIntegrationMetadataRequest'
+        description: Incident integration metadata payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentIntegrationMetadataResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing integration metadata
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/selections:
+    get:
+      description: Get all selections for a given incident.
+      operationId: GetUserDefinedFieldSelections
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldSelectionIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldSelectionListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all selections for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new selection for the given incident.
+      operationId: CreateUserDefinedFieldSelection
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldSelectionRequest'
+        description: Incident Selection Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldSelectionResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new selection
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/selections/{selection_id}:
+    delete:
+      description: Deletes an existing selection for the given incident.
+      operationId: DeleteUserDefinedFieldSelection
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldSelectionIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Deletes an existing selection
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing selection. Only the choice field can be updated
+        for a given selection.
+      operationId: PatchUserDefinedFieldSelection
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/UserDefinedFieldSelectionIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDefinedFieldSelectionRequest'
+        description: Incident Selection Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDefinedFieldSelectionResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing selection
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/services:
+    get:
+      description: Get all services associated with a given incident.
+      operationId: GetServicesForIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentServiceIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all services for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Add a service to a given incident.
+      operationId: AddServiceToIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceRequest'
+        description: Services Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceListResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Add a new service to an incident
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/services/{service_id}:
+    delete:
+      description: Remove a service from an incident.
+      operationId: RemoveServiceFromIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/ServiceIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Remove a service from an incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/teams:
+    get:
+      description: Get all teams associated with a given incident.
+      operationId: GetTeamsForIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTeamIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all teams for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Add a team to a given incident.
+      operationId: AddTeamToIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+        description: Teams Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamListResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Add a new team to an incident
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/teams/{team_id}:
+    delete:
+      description: Remove a team from an incident.
+      operationId: RemoveTeamFromIncident
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/TeamIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Remove a team from an incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/todos:
+    get:
+      description: Get all to-dos for a given incident.
+      operationId: GetIncidentTodos
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentToDoIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTodoListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all to-dos for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new to-do for the given incident.
+      operationId: CreateIncidentTodo
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentTodoRequest'
+        description: Incident to-do Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTodoResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new to-do
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/relationships/todos/{todo_id}:
+    delete:
+      description: Deletes an existing to-do for the given incident.
+      operationId: DeleteIncidentTodo
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTodoIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Deletes an existing to-do for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of an incident to-do.
+      operationId: GetIncidentTodo
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTodoIDPathParameter'
+      - $ref: '#/components/parameters/IncidentToDoIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTodoResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get the details of an incident to-do
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing to-do. Only provide the attributes which should
+        be updated as this request is a partial update.
+      operationId: PatchIncidentTodo
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTodoIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentTodoRequest'
+        description: Incident to-do Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTodoResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing to-do
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/timeline:
+    get:
+      description: Get all timeline cells for a given incident.
+      operationId: GetIncidentTimelineCells
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTimelineCellIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTimelineCellListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get all timeline cells for the given incident
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new timeline cell for the given incident.
+      operationId: CreateIncidentTimelineCell
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentTimelineCellRequest'
+        description: Incident Timeline Cell Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTimelineCellResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new timeline cell
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/incidents/{incident_id}/timeline/{cell_id}:
+    delete:
+      description: Deletes an existing timeline cell for the given incident.
+      operationId: DeleteIncidentTimelineCell
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTimelineCellIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Deletes an existing timeline cell
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get the details of an incident timeline cell.
+      operationId: GetIncidentTimelineCell
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTimelineCellIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTimelineCellIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTimelineCellResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get the details of an incident timeline cell
+      tags:
+      - Incidents
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing timeline cell. Only provide the attributes
+        which should be updated as this request is a partial update. Only the creator
+        of the timeline cell can update its contents.
+      operationId: PatchIncidentTimelineCell
+      parameters:
+      - $ref: '#/components/parameters/IncidentIDPathParameter'
+      - $ref: '#/components/parameters/IncidentTimelineCellIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IncidentTimelineCellRequest'
+        description: Incident Timeline Cell Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IncidentTimelineCellResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing timeline cell
+      tags:
+      - Incidents
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/logs/analytics/aggregate:
     post:
       description: The public API endpoint to aggregate events into buckets and compute
@@ -4046,6 +8307,302 @@ paths:
       x-unstable: '**Note**: This endpoint is in public beta.
 
         If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/services:
+    get:
+      description: Get all services for the requesting user's organization. If the
+        `include[users]` query parameter is provided, the included attribute will
+        contain the users related to these services.
+      operationId: GetServices
+      parameters:
+      - $ref: '#/components/parameters/ServiceIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get a list of all services
+      tags:
+      - Services
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new service.
+      operationId: CreateService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceRequest'
+        description: Service Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new service
+      tags:
+      - Services
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/services/{service_id}:
+    delete:
+      description: Deletes an existing service.
+      operationId: DeleteService
+      parameters:
+      - $ref: '#/components/parameters/ServiceIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Delete an existing service
+      tags:
+      - Services
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get details of a service. If the `include[users]` query parameter
+        is provided, the included attribute will contain the users related to these
+        services
+      operationId: GetService
+      parameters:
+      - $ref: '#/components/parameters/ServiceIDPathParameter'
+      - $ref: '#/components/parameters/ServiceIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get details of a service
+      tags:
+      - Services
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing service. Only provide the attributes which
+        should be updated as this request is a partial update.
+      operationId: PatchService
+      parameters:
+      - $ref: '#/components/parameters/ServiceIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceRequest'
+        description: Service Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing service
+      tags:
+      - Services
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/teams:
+    get:
+      description: Get all teams for the requesting user's organization. If the `include[users]`
+        query parameter is provided, the included attribute will contain the users
+        related to these teams.
+      operationId: GetTeams
+      parameters:
+      - $ref: '#/components/parameters/TeamIncludeQueryParameter'
+      - $ref: '#/components/parameters/PageSize'
+      - $ref: '#/components/parameters/PageNumber'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamListResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+      summary: Get a list of all teams
+      tags:
+      - Teams
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    post:
+      description: Creates a new team.
+      operationId: CreateTeam
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+        description: Teams Payload.
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamResponse'
+          description: CREATED
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Create a new team
+      tags:
+      - Teams
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+  /api/v2/teams/{team_id}:
+    delete:
+      description: Deletes an existing team.
+      operationId: DeleteTeam
+      parameters:
+      - $ref: '#/components/parameters/TeamIDPathParameter'
+      responses:
+        '204':
+          $ref: '#/components/responses/204DefaultResponse'
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Delete an existing team
+      tags:
+      - Teams
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    get:
+      description: Get details of a team. If the `include[users]` query parameter
+        is provided, the included attribute will contain the users related to these
+        teams.
+      operationId: GetTeam
+      parameters:
+      - $ref: '#/components/parameters/TeamIDPathParameter'
+      - $ref: '#/components/parameters/TeamIncludeQueryParameter'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Get details of a team
+      tags:
+      - Teams
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
+    patch:
+      description: Updates an existing team. Only provide the attributes which should
+        be updated as this request is a partial update.
+      operationId: PatchTeam
+      parameters:
+      - $ref: '#/components/parameters/TeamIDPathParameter'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamRequest'
+        description: Teams Payload.
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamResponse'
+          description: OK
+        '400':
+          $ref: '#/components/responses/400DefaultResponse'
+        '401':
+          $ref: '#/components/responses/401DefaultResponse'
+        '403':
+          $ref: '#/components/responses/403DefaultResponse'
+        '404':
+          $ref: '#/components/responses/404DefaultResponse'
+      summary: Update an existing team
+      tags:
+      - Teams
+      x-codegen-request-body-name: body
+      x-unstable: '**Note**: This endpoint is in public beta.
+
+        If you have any feedback, contact [Datadog support](https://docs.datadoghq.com/help/).'
   /api/v2/user_invitations:
     post:
       description: Sends emails to one or more users inviting them to join the organization.
@@ -4426,6 +8983,8 @@ tags:
   name: Hosts
 - description: '[See API version 1](/api/v1/ip-ranges/).'
   name: IP Ranges
+- description: Interact with Incidents API endpoints.
+  name: Incidents
 - description: '[See API version 1](/api/v1/key-management/).'
   name: Key Management
 - description: 'Search your logs in the Datadog platform over HTTP.
@@ -4501,6 +9060,8 @@ tags:
   name: Service Dependencies
 - description: '[See API version 1](/api/v1/service-level-objectives/).'
   name: Service Level Objectives
+- description: Create, update, delete and retrieve your organizations services.
+  name: Services
 - description: '[See API version 1](/api/v1/slack-integration/).'
   name: Slack Integration
 - description: '[See API version 1](/api/v1/snapshots/).'
@@ -4509,6 +9070,8 @@ tags:
   name: Synthetics
 - description: '[See API version 1](/api/v1/tags/).'
   name: Tags
+- description: Create, update, delete and retrieve your organizations Teams.
+  name: Teams
 - description: '[See API version 1](/api/v1/timeboards/).'
   name: Timeboards
 - description: '[See API version 1](/api/v1/tracing/).'

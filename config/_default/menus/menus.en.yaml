@@ -2819,6 +2819,206 @@ api_v2:
     url: /api/v2/ip-ranges/
     identifier: IP Ranges
     generated: true
+  - name: Incidents
+    url: /api/v2/incidents/
+    identifier: Incidents
+    generated: true
+  - name: Get a list of incidents
+    parent: Incidents
+    url: '#get-a-list-of-incidents'
+    generated: true
+  - name: Create a new incident
+    parent: Incidents
+    url: '#create-a-new-incident'
+    generated: true
+  - name: Get a list of all configuration fields
+    parent: Incidents
+    url: '#get-a-list-of-all-configuration-fields'
+    generated: true
+  - name: Create a new user-defined field
+    parent: Incidents
+    url: '#create-a-new-user-defined-field'
+    generated: true
+  - name: Creates the initial user-defined fields
+    parent: Incidents
+    url: '#creates-the-initial-user-defined-fields'
+    generated: true
+  - name: Deletes an existing field
+    parent: Incidents
+    url: '#deletes-an-existing-field'
+    generated: true
+  - name: Get the details of a field
+    parent: Incidents
+    url: '#get-the-details-of-a-field'
+    generated: true
+  - name: Update an existing user-defined field
+    parent: Incidents
+    url: '#update-an-existing-user-defined-field'
+    generated: true
+  - name: Get all choices for the given field
+    parent: Incidents
+    url: '#get-all-choices-for-the-given-field'
+    generated: true
+  - name: Create a new choice
+    parent: Incidents
+    url: '#create-a-new-choice'
+    generated: true
+  - name: Delete an existing choice for a user-defined field
+    parent: Incidents
+    url: '#delete-an-existing-choice-for-a-user-defined-field'
+    generated: true
+  - name: Get the details of a user-defined field choice
+    parent: Incidents
+    url: '#get-the-details-of-a-user-defined-field-choice'
+    generated: true
+  - name: Update an existing choice for a user-defined field
+    parent: Incidents
+    url: '#update-an-existing-choice-for-a-user-defined-field'
+    generated: true
+  - name: Search tag keys for use in user-defined fields
+    parent: Incidents
+    url: '#search-tag-keys-for-use-in-user-defined-fields'
+    generated: true
+  - name: Search tag values for a key to select on incidents
+    parent: Incidents
+    url: '#search-tag-values-for-a-key-to-select-on-incidents'
+    generated: true
+  - name: Get a list of all Postmortems
+    parent: Incidents
+    url: '#get-a-list-of-all-postmortems'
+    generated: true
+  - name: Create a new postmortem
+    parent: Incidents
+    url: '#create-a-new-postmortem'
+    generated: true
+  - name: Update an existing postmortem
+    parent: Incidents
+    url: '#update-an-existing-postmortem'
+    generated: true
+  - name: Get details of a postmortem
+    parent: Incidents
+    url: '#get-details-of-a-postmortem'
+    generated: true
+  - name: Update an existing postmortem
+    parent: Incidents
+    url: '#update-an-existing-postmortem'
+    generated: true
+  - name: Search incidents
+    parent: Incidents
+    url: '#search-incidents'
+    generated: true
+  - name: Delete an existing incident
+    parent: Incidents
+    url: '#delete-an-existing-incident'
+    generated: true
+  - name: Get the details of an incident
+    parent: Incidents
+    url: '#get-the-details-of-an-incident'
+    generated: true
+  - name: Update an existing incident
+    parent: Incidents
+    url: '#update-an-existing-incident'
+    generated: true
+  - name: Get all metadata items for an incident
+    parent: Incidents
+    url: '#get-all-metadata-items-for-an-incident'
+    generated: true
+  - name: Create a new integration metadata
+    parent: Incidents
+    url: '#create-a-new-integration-metadata'
+    generated: true
+  - name: Deletes a metadata for the given incident
+    parent: Incidents
+    url: '#deletes-a-metadata-for-the-given-incident'
+    generated: true
+  - name: Get details of a metadata
+    parent: Incidents
+    url: '#get-details-of-a-metadata'
+    generated: true
+  - name: Update an existing integration metadata
+    parent: Incidents
+    url: '#update-an-existing-integration-metadata'
+    generated: true
+  - name: Get all selections for the given incident
+    parent: Incidents
+    url: '#get-all-selections-for-the-given-incident'
+    generated: true
+  - name: Create a new selection
+    parent: Incidents
+    url: '#create-a-new-selection'
+    generated: true
+  - name: Deletes an existing selection
+    parent: Incidents
+    url: '#deletes-an-existing-selection'
+    generated: true
+  - name: Update an existing selection
+    parent: Incidents
+    url: '#update-an-existing-selection'
+    generated: true
+  - name: Get all services for the given incident
+    parent: Incidents
+    url: '#get-all-services-for-the-given-incident'
+    generated: true
+  - name: Add a new service to an incident
+    parent: Incidents
+    url: '#add-a-new-service-to-an-incident'
+    generated: true
+  - name: Remove a service from an incident
+    parent: Incidents
+    url: '#remove-a-service-from-an-incident'
+    generated: true
+  - name: Get all teams for the given incident
+    parent: Incidents
+    url: '#get-all-teams-for-the-given-incident'
+    generated: true
+  - name: Add a new team to an incident
+    parent: Incidents
+    url: '#add-a-new-team-to-an-incident'
+    generated: true
+  - name: Remove a team from an incident
+    parent: Incidents
+    url: '#remove-a-team-from-an-incident'
+    generated: true
+  - name: Get all to-dos for the given incident
+    parent: Incidents
+    url: '#get-all-to-dos-for-the-given-incident'
+    generated: true
+  - name: Create a new to-do
+    parent: Incidents
+    url: '#create-a-new-to-do'
+    generated: true
+  - name: Deletes an existing to-do for the given incident
+    parent: Incidents
+    url: '#deletes-an-existing-to-do-for-the-given-incident'
+    generated: true
+  - name: Get the details of an incident to-do
+    parent: Incidents
+    url: '#get-the-details-of-an-incident-to-do'
+    generated: true
+  - name: Update an existing to-do
+    parent: Incidents
+    url: '#update-an-existing-to-do'
+    generated: true
+  - name: Get all timeline cells for the given incident
+    parent: Incidents
+    url: '#get-all-timeline-cells-for-the-given-incident'
+    generated: true
+  - name: Create a new timeline cell
+    parent: Incidents
+    url: '#create-a-new-timeline-cell'
+    generated: true
+  - name: Deletes an existing timeline cell
+    parent: Incidents
+    url: '#deletes-an-existing-timeline-cell'
+    generated: true
+  - name: Get the details of an incident timeline cell
+    parent: Incidents
+    url: '#get-the-details-of-an-incident-timeline-cell'
+    generated: true
+  - name: Update an existing timeline cell
+    parent: Incidents
+    url: '#update-an-existing-timeline-cell'
+    generated: true
   - name: Key Management
     url: /api/v2/key-management/
     identifier: Key Management
@@ -3043,6 +3243,30 @@ api_v2:
     url: /api/v2/service-level-objectives/
     identifier: Service Level Objectives
     generated: true
+  - name: Services
+    url: /api/v2/services/
+    identifier: Services
+    generated: true
+  - name: Get a list of all services
+    parent: Services
+    url: '#get-a-list-of-all-services'
+    generated: true
+  - name: Create a new service
+    parent: Services
+    url: '#create-a-new-service'
+    generated: true
+  - name: Delete an existing service
+    parent: Services
+    url: '#delete-an-existing-service'
+    generated: true
+  - name: Get details of a service
+    parent: Services
+    url: '#get-details-of-a-service'
+    generated: true
+  - name: Update an existing service
+    parent: Services
+    url: '#update-an-existing-service'
+    generated: true
   - name: Slack Integration
     url: /api/v2/slack-integration/
     identifier: Slack Integration
@@ -3058,6 +3282,30 @@ api_v2:
   - name: Tags
     url: /api/v2/tags/
     identifier: Tags
+    generated: true
+  - name: Teams
+    url: /api/v2/teams/
+    identifier: Teams
+    generated: true
+  - name: Get a list of all teams
+    parent: Teams
+    url: '#get-a-list-of-all-teams'
+    generated: true
+  - name: Create a new team
+    parent: Teams
+    url: '#create-a-new-team'
+    generated: true
+  - name: Delete an existing team
+    parent: Teams
+    url: '#delete-an-existing-team'
+    generated: true
+  - name: Get details of a team
+    parent: Teams
+    url: '#get-details-of-a-team'
+    generated: true
+  - name: Update an existing team
+    parent: Teams
+    url: '#update-an-existing-team'
     generated: true
   - name: Timeboards
     url: /api/v2/timeboards/
